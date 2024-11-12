@@ -1,0 +1,187 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+.bg-primary {
+    background-color: #1a73e8 !important;
+    background: linear-gradient(135deg, #1a73e8, #5f4bb6, #8a2be2);
+}
+
+.sidebar .nav-link {
+    color: #ffffff;
+    font-size: 1.1rem;
+    margin: 10px 0;
+}
+
+.sidebar h2 {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#map {
+    height: 70vh;
+    width: 100%;
+}
+
+#timer, #counter {
+    font-size: 1.2rem;
+    text-align: center;
+    color: #1a73e8;
+    margin-bottom: 20px;
+}
+
+#progress-bar {
+    transition: width 0.3s ease;
+}
+
+#timer.low-time {
+    color: #ff0000;
+}
+
+/* Adjustments for the timer and counter row */
+.container-fluid .row .h5, #counter {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.progress {
+    height: 20px;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    #timer, #counter {
+        font-size: 1.1rem;
+    }
+    .container-fluid .row {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Modal Overlay for Background Blur */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+/* Modal Content */
+#game-over-modal {
+    position: fixed;
+    top: 10%;
+    left: 10%;
+    width: 80vw;
+    height: 80vh;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    font-size: 2em;
+    color: #333;
+}
+
+.modal-content ul {
+    text-align: left;
+    max-height: 300px;
+    overflow-y: auto;
+    width: 90%;
+    margin: 0 auto 20px auto;
+    padding-left: 20px;
+}
+
+#restart-button {
+    padding: 10px 20px;
+    font-size: 1em;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#restart-button:hover {
+    background-color: #0056b3;
+}
+
+/* Scrollable list for missed countries */
+#missed-countries-list {
+    text-align: left;
+    max-height: 250px;
+    overflow-y: auto;
+    padding-left: 20px;
+}
+
+#close-modal-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 1.5em;
+    color: #333;
+    cursor: pointer;
+}
+
+#close-modal-button:hover {
+    color: #ff0000; /* Optional: color change on hover */
+}
+
+.region-buttons {
+    margin-top: 10px;
+}
+
+.region-buttons .btn {
+    margin: 5px;
+}
+
+/* Label styling */
+.view-options-label {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* Button styling */
+.btn-view {
+    margin: 0 5px;
+    padding: 8px 12px;
+    background: linear-gradient(135deg, #4a90e2, #357abd);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.btn-view:hover {
+    background: linear-gradient(135deg, #357abd, #2b6ca3);
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.btn-view:focus {
+    outline: none;
+    box-shadow: 0px 0px 5px 2px rgba(70, 130, 180, 0.5);
+}
+
