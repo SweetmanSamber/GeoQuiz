@@ -3,6 +3,7 @@ let timer = 900; // 15 minutes in seconds
 const timerElement = document.getElementById('timer');
 const playButton = document.getElementById('play-button');
 const giveUpButton = document.getElementById('give-up-button');
+const playAgainButton = document.getElementById('play-again-button');
 const countryInput = document.getElementById('country-input');
 let countdown; // Declare countdown globally
 
@@ -22,8 +23,8 @@ L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_nolabels/{
 
 // Elements for counters and progress
 const totalCountElement = document.getElementById('total-count');
-const correctCountElement = document.getElementById('correct-count');
-const progressBar = document.getElementById('progress-bar');
+let correctCountElement = document.getElementById('correct-count');
+//const progressBar = document.getElementById('progress-bar');
 
 // Country Alias List
 const countryAliases = {
@@ -57,10 +58,10 @@ function formatTime(seconds) {
 
 // Start Timer
 function startTimer() {
-    timerElement.textContent = `Time left: ${formatTime(timer)}`;
+    timerElement.textContent = `${formatTime(timer)}`;
     countdown = setInterval(() => {
         timer--;
-        timerElement.textContent = `Time left: ${formatTime(timer)}`;
+        timerElement.textContent = `${formatTime(timer)}`;
 
         if (timer <= 60) {
             timerElement.classList.add('low-time');
@@ -79,7 +80,6 @@ function startTimer() {
 function startGame() {
     startTimer();
 
-    // Hide the "Play" button and show the "Give Up" button
     playButton.style.display = 'none';
     countryInput.disabled = false;
     countryInput.focus();
@@ -87,11 +87,11 @@ function startGame() {
 }
 
 // Update Progress Bar
-function updateProgress() {
-    const percentage = (correctAnswers.size / totalCountries) * 100;
-    progressBar.style.width = `${percentage}%`;
-    progressBar.setAttribute("aria-valuenow", percentage);
-}
+// function updateProgress() {
+//     const percentage = (correctAnswers.size / totalCountries) * 100;
+//     progressBar.style.width = `${percentage}%`;
+//     progressBar.setAttribute("aria-valuenow", percentage);
+// }
 
 // Highlight Country and Track Correct Answers
 function highlightCountry(countryName) {
@@ -113,7 +113,7 @@ function highlightCountry(countryName) {
                 });
 
                 correctCountElement.textContent = correctAnswers.size;
-                updateProgress();
+                //updateProgress();
                 document.getElementById('country-input').value = '';
             }
         }
@@ -147,6 +147,9 @@ function endGame() {
         listItem.textContent = country.charAt(0).toUpperCase() + country.slice(1); // Capitalize first letter
         missedList.appendChild(listItem);
     });
+
+    giveUpButton.style.display = 'none';
+    playAgainButton.style.display = 'inline-block';
 
     // Show the modal with the game results
     showModal();
@@ -190,6 +193,10 @@ playButton.addEventListener('click', startGame);
 // Event listener for "Give Up" button to end the game
 giveUpButton.addEventListener('click', () => {
     endGame();
+});
+
+playAgainButton.addEventListener('click', () =>{
+    location.reload();
 });
 
 // Restart the game when the user clicks "Play Again"

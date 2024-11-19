@@ -8,16 +8,42 @@ body {
     background: linear-gradient(135deg, #1a73e8, #5f4bb6, #8a2be2);
 }
 
-.sidebar .nav-link {
-    color: #ffffff;
-    font-size: 1.1rem;
-    margin: 10px 0;
+.sidebar {
+    background: linear-gradient(135deg, #1a73e8, #5f4bb6, #8a2be2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .sidebar h2 {
+    font-size: 1.8rem;
+    color: #fff;
+    margin-bottom: 20px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+    padding-bottom: 10px;
+}
+
+.sidebar .nav-link {
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.sidebar .nav-link i {
     font-size: 1.5rem;
-    text-align: center;
-    margin-bottom: 30px;
+    color: rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+    margin-right: 20px;
+}
+
+.sidebar .nav-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(5px);
+    text-shadow: 0px 2px 6px rgba(255, 255, 255, 0.4);
+}
+
+.sidebar .nav-link i:hover {
+    color: #fff;
 }
 
 #map {
@@ -25,29 +51,17 @@ body {
     width: 100%;
 }
 
-#timer, #counter {
-    font-size: 1.2rem;
-    text-align: center;
+.blue{
     color: #1a73e8;
-    margin-bottom: 20px;
-}
-
-#progress-bar {
-    transition: width 0.3s ease;
 }
 
 #timer.low-time {
     color: #ff0000;
 }
 
-/* Adjustments for the timer and counter row */
 .container-fluid .row .h5, #counter {
     font-size: 1.3rem;
     font-weight: bold;
-}
-
-.progress {
-    height: 20px;
 }
 
 /* Responsive styling */
@@ -79,10 +93,10 @@ body {
 /* Modal Content */
 #game-over-modal {
     position: fixed;
-    top: 10%;
-    left: 10%;
-    width: 80vw;
-    height: 80vh;
+    top: 5%;
+    left: 5%;
+    width: 90vw;
+    height: 90vh;
     background-color: #fff;
     border-radius: 10px;
     padding: 20px;
@@ -102,7 +116,6 @@ body {
 
 .modal-content ul {
     text-align: left;
-    max-height: 300px;
     overflow-y: auto;
     width: 90%;
     margin: 0 auto 20px auto;
@@ -127,7 +140,6 @@ body {
 /* Scrollable list for missed countries */
 #missed-countries-list {
     text-align: left;
-    max-height: 250px;
     overflow-y: auto;
     padding-left: 20px;
 }
